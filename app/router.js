@@ -9,7 +9,10 @@ Router.map(function() {
   this.route('about');
   this.route('contact');
   this.resource('posts', {path: '/'}, function() {
-    this.resource('post', {path: ':post_id'});    
+    this.resource('post', {path: ':post_id'}, function() {
+      this.resource('new-comment');
+      this.resource('comment', {path: ':comment_id'});      
+    });
   });
 });
 
